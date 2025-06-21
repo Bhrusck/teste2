@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Ferreira - Currículo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1a1a1a; background: #fff; font-size: 11px; }
+        .container { max-width: 210mm; margin: 0 auto; padding: 20mm; background: white; position: relative; }
+        .container::before { content: ''; position: absolute; top: 0; left: 20mm; right: 20mm; height: 3px; background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%); }
+        .header { margin-bottom: 32px; padding-top: 8px; }
+        .header h1 { font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 6px; letter-spacing: -0.025em; }
+        .header .subtitle { font-size: 16px; color: #475569; margin-bottom: 16px; font-weight: 500; }
+        .contact-info { display: flex; gap: 24px; flex-wrap: wrap; font-size: 11px; color: #64748b; }
+        .contact-info span { display: flex; align-items: center; gap: 6px; }
+        .contact-info .icon { font-size: 12px; color: #2563eb; }
+        .section { margin-bottom: 28px; }
+        .section-title { font-size: 14px; font-weight: 600; color: #0f172a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; position: relative; padding-bottom: 8px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: #2563eb; }
+        .profile-text { font-size: 12px; line-height: 1.7; color: #374151; margin-bottom: 14px; text-align: justify; }
+        .profile-text strong { color: #1f2937; font-weight: 600; }
+        .skills-container { background: #fafafa; border-radius: 4px; padding: 20px; border: 1px solid #e5e7eb; }
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .skill-category h4 { font-size: 12px; font-weight: 600; color: #1e293b; margin-bottom: 10px; }
+        .skill-category ul { list-style: none; font-size: 10px; }
+        .skill-category li { margin-bottom: 6px; padding-left: 12px; position: relative; color: #475569; }
+        .skill-category li::before { content: ''; position: absolute; left: 0; top: 7px; width: 4px; height: 4px; background: #2563eb; border-radius: 50%; }
+        .company { margin-bottom: 32px; page-break-inside: avoid; }
+        .company-name { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 16px; }
+        .company-achievements { margin-bottom: 20px; }
+        .company-achievements h5 { font-size: 12px; font-weight: 600; color: #1e293b; margin-bottom: 8px; }
+        .company-achievements ul { list-style: none; font-size: 11px; }
+        .company-achievements li { margin-bottom: 8px; padding-left: 16px; position: relative; line-height: 1.5; color: #374151; }
+        .company-achievements li::before { content: '✓'; color: #059669; font-weight: 600; position: absolute; left: 0; }
+        .job { margin-bottom: 20px; }
+        .job-title { font-size: 13px; font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+        .job-period { font-size: 10px; color: #64748b; margin-bottom: 8px; }
+        .job-achievements { margin-bottom: 12px; }
+        .job-achievements h5 { font-size: 11px; font-weight: 600; color: #1e293b; margin-bottom: 6px; }
+        .job-achievements ul { list-style: none; font-size: 10px; }
+        .job-achievements li { margin-bottom: 6px; padding-left: 16px; position: relative; line-height: 1.5; color: #374151; }
+        .job-achievements li::before { content: '✓'; color: #059669; font-weight: 600; position: absolute; left: 0; font-size: 8px; }
+        .competencies h5 { font-size: 11px; font-weight: 600; color: #1e293b; margin-bottom: 6px; }
+        .competencies ul { list-style: none; font-size: 10px; }
+        .competencies li { margin-bottom: 6px; padding-left: 16px; position: relative; line-height: 1.5; color: #374151; }
+        .competencies li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 1px; background: #2563eb; }
+        .highlight { font-weight: 600; color: #1f2937; }
+        .education-container { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .education-section { background: #fafafa; border-radius: 4px; padding: 16px; border: 1px solid #e5e7eb; }
+        .education-section h4 { font-size: 12px; font-weight: 600; color: #1f2937; margin-bottom: 12px; }
+        .education-item { margin-bottom: 12px; }
+        .education-item p { font-size: 10px; color: #4b5563; margin-bottom: 4px; line-height: 1.4; }
+        .education-item strong { color: #1f2937; font-weight: 500; }
+        .achievements-section { background: #f5f5f5; border-radius: 4px; padding: 20px; border: 1px solid #d1d5db; }
+        .achievements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .achievement-column h4 { font-size: 12px; font-weight: 600; color: #1e293b; margin-bottom: 10px; }
+        .achievement-list { list-style: none; font-size: 10px; }
+        .achievement-list li { margin-bottom: 8px; padding-left: 16px; position: relative; line-height: 1.4; color: #374151; }
+        .achievement-list li::before { content: '●'; color: #2563eb; position: absolute; left: 0; font-size: 8px; top: 2px; }
+        .achievement-list strong { color: #1f2937; font-weight: 600; }
+        .certifications-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cert-section { background: #f9fafb; border-radius: 4px; padding: 16px; border: 1px solid #e5e7eb; }
+        .cert-section h4 { font-size: 11px; font-weight: 600; color: #1f2937; margin-bottom: 8px; }
+        @media print {
+            body { font-size: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .container { padding: 12mm; max-width: none; }
+            .section { margin-bottom: 20px; }
+            .company { margin-bottom: 24px; }
+            .skills-container, .achievements-section { background: #fafafa !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>David Ferreira</h1>
+            <div class="subtitle">Especialista em Administração • Gestão de Projetos • Gestão de Processos • Business Intelligence</div>
+            <div class="contact-info">
+                <span><span class="icon">📱</span>(69) 99370-9516</span>
+                <span><span class="icon">✉️</span>davidlucas1988@hotmail.com</span>
+                <span><span class="icon">💼</span>linkedin.com/in/david-silvaf</span>
+                <span><span class="icon">📍</span>Brasil</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Perfil Executivo</h2>
+            <div class="profile-text">
+                Consultor especialista com <strong>10+ anos de experiência</strong> e <strong>70+ projetos complexos</strong> executados com sucesso. Histórico comprovado em <strong>transformação digital</strong>, <strong>gestão de portfólio</strong> e implementação de <strong>metodologias ágeis</strong> em organizações de diferentes portes e segmentos.
+            </div>
+            <div class="profile-text">
+                Experiência consolidada desde órgãos da Administração Pública até multinacionais de tecnologia, conduzindo transformações que impactam milhões de usuários. Especialista em <strong>PMO estratégico</strong>, cultura <strong>data-driven</strong> e automação de processos, com capacidade comprovada de traduzir objetivos estratégicos em resultados mensuráveis.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Competências Estratégicas</h2>
+            <div class="skills-container">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Gestão de Projetos & PMO</h4>
+                        <ul>
+                            <li>Gestão de Portfólio Complexo</li>
+                            <li>PMO Estratégico & Governança</li>
+                            <li>Metodologias Ágeis (Scrum, Kanban, SAFe)</li>
+                            <li>Gestão de Riscos & Issues</li>
+                            <li>Stakeholder Management</li>
+                            <li>Change Management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Business Intelligence & Analytics</h4>
+                        <ul>
+                            <li>Microsoft Power BI</li>
+                            <li>Modelagem de Dados & Data Warehouse</li>
+                            <li>ETL/ELT Processes</li>
+                            <li>SQL Server</li>
+                            <li>Data Governance & Quality</li>
+                            <li>KPIs & Balanced Scorecard</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Estratégia & Processos</h4>
+                        <ul>
+                            <li>Planejamento Estratégico Organizacional</li>
+                            <li>Business Process Management (BPM)</li>
+                            <li>Redesenho de Processos</li>
+                            <li>Compliance & Auditoria</li>
+                            <li>Controles Internos</li>
+                            <li>Políticas & Procedimentos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experiência Profissional</h2>
+
+            <div class="company">
+                <div class="company-name">LUMMEN LAB</div>
+                <div class="job">
+                    <div class="job-title">Consultor Sênior</div>
+                    <div class="job-period">Setembro 2022 - Presente • 2 anos 10 meses</div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Assessoria estratégica em Gestão de Projetos, definindo frameworks e KPIs para entregas de alto impacto</li>
+                            <li>Redesenho e otimização de processos críticos, promovendo eficiência operacional e redução de custos</li>
+                            <li>Desenvolvimento de soluções de Business Intelligence, projetando arquiteturas de dados e dashboards executivos</li>
+                            <li>Gestão de portfolios de produtos, definindo estratégias de lançamento e roadmap de funcionalidades</li>
+                            <li>Liderança em iniciativas de Transformação Digital, selecionando tecnologias para digitalizar operações</li>
+                            <li>Implementação de frameworks de governança, gestão de riscos e políticas de dados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company">
+                <div class="company-name">SAS</div>
+                <div class="job">
+                    <div class="job-title">Agilista</div>
+                    <div class="job-period">Setembro 2022 - Junho 2024 • 1 ano 10 meses • Remoto</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Transformação Ágil:</span> Liderou implantação de agilidade em projetos com clientes como XP Investimentos, PicPay, Vivo, Kroton e IRB Seguros</li>
+                            <li><span class="highlight">Dashboards de Performance:</span> Desenvolveu dashboards em Power BI para acompanhamento de métricas ágeis de cada equipe/projeto</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Facilitação de cerimônias ágeis (daily, planning, review, retro) para otimizar colaboração e entregas</li>
+                            <li>Implementação e gerenciamento Kanban, garantindo visibilidade do fluxo de trabalho e priorização eficaz</li>
+                            <li>Coordenação de equipes multifuncionais, assegurando entrega integrada de valor</li>
+                            <li>Monitoramento de fluxo e eliminação de gargalos, aplicando métricas ágeis e KPIs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="job-title">Consultor em Gestão e Excelência Operacional</div>
+                    <div class="job-period">Setembro 2022 - Junho 2024 • 1 ano 10 meses • Remoto</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Cultura Data-Driven:</span> Implementou cultura orientada a dados na área de DEVOPS através de dashboards operacionais, táticos e estratégicos</li>
+                            <li><span class="highlight">Reforma Operacional:</span> Reformulou modelo operacional e comercial da área de DEVOPS e AMS</li>
+                            <li><span class="highlight">Diagnóstico de Governança:</span> Realizou diagnóstico de qualidade em Governança e Gestão na Diretoria de Consultoria</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Otimização de controle de recursos e tecnologias, assegurando eficiência e maximização de resultados</li>
+                            <li>Centralização e governança de dados críticos, garantindo integridade e suporte à decisão</li>
+                            <li>Implementação de métodos de operação orientada a resultados, garantindo entrega contínua de valor</li>
+                            <li>Estruturação e manutenção de equipes autogerenciáveis, resilientes e de alta performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company">
+                <div class="company-name">GOVERNO DO ESTADO DE RONDÔNIA</div>
+                <div class="job">
+                    <div class="job-title">Analista de Dados</div>
+                    <div class="job-period">Agosto 2022 - Julho 2023 • 1 ano • Remoto</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Produtos de Business Intelligence:</span> Desenvolveu dashboards em Power BI para SOLAR, VISAON, PPE, Prato Fácil, SEI Assinaturas</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Limpeza, validação e correção de grandes volumes de dados, removendo duplicidades e inconsistências</li>
+                            <li>Estruturação e modelagem de datasets para extração de insights estratégicos</li>
+                            <li>Monitoramento da qualidade dos dados e integrações, assegurando consistência nos relatórios</li>
+                            <li>Desenvolvimento, automação e manutenção de dashboards e relatórios gerenciais</li>
+                            <li>Acompanhamento de KPIs e tendências, sugerindo otimizações para as áreas de negócio</li>
+                            <li>Tradução de objetivos de negócio em requisitos de extração e análise de dados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company">
+                <div class="company-name">IBLUE CONSULTING</div>
+                <div class="job">
+                    <div class="job-title">Scrum Master Senior IV</div>
+                    <div class="job-period">Abril 2022 - Setembro 2022 • 6 meses • Remoto</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Liderança de Equipes:</span> Gerenciou 5 equipes de desenvolvimento SAS simultaneamente</li>
+                            <li><span class="highlight">Estratégia Ágil:</span> Definiu e liderou estratégia ágil para múltiplas equipes, alinhando práticas aos objetivos de negócio</li>
+                            <li><span class="highlight">Métricas Avançadas:</span> Implementou dashboards para monitoramento de velocity, lead time e throughput</li>
+                            <li><span class="highlight">Mentoria Técnica:</span> Coaching avançado para Scrum Masters juniores e avaliação de maturidade ágil</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Definição e liderança da estratégia ágil para múltiplas equipes, alinhando práticas aos objetivos de negócio</li>
+                            <li>Mentoria de Scrum Masters juniores, oferecendo coaching avançado e suporte contínuo</li>
+                            <li>Gerenciamento e monitoramento de métricas de desempenho (velocity, lead time, throughput)</li>
+                            <li>Condução de avaliações de maturidade ágil em nível organizacional</li>
+                            <li>Facilitação de workshops executivos e sessões de coaching com líderes e stakeholders</li>
+                            <li>Implantação e otimização de políticas de governança ágil, definindo processos de compliance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="job-title">Scrum Master Senior I</div>
+                    <div class="job-period">Setembro 2021 - Abril 2022 • 8 meses • Remoto</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Liderança de Equipes:</span> Gerenciou 5 equipes de desenvolvimento SAS simultaneamente</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Fomento de princípios ágeis (Scrum e Kanban), alinhando teoria e prática para alta performance</li>
+                            <li>Facilitação de cerimônias e gestão de fluxo em Agileboards, removendo impedimentos</li>
+                            <li>Construção de dashboards em Power BI para monitorar métricas como velocity e throughput</li>
+                            <li>Análise de progresso e gargalos, gerando insights e ações de melhoria contínua</li>
+                            <li>Condução de workshops e comunidades de prática ágil, compartilhando melhores práticas</li>
+                            <li>Avaliação da maturidade ágil de squads, criando planos de evolução e promovendo autonomia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company">
+                <div class="company-name">GETTER S.A.</div>
+                <div class="job">
+                    <div class="job-title">Gerente de Projetos</div>
+                    <div class="job-period">Fevereiro 2021 - Março 2022 • 1 ano 2 meses • Remoto</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Projetos de Inteligência Artificial:</span> Supervisionou projetos de IA com Stellantis, Volkswagen, Gerdau, Akzonobel, Enaex e Sanofi</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Orquestração de programas e projetos, liderando times multidisciplinares e garantindo integração entre áreas</li>
+                            <li>Aplicação de práticas de gestão em todo o ciclo de vida, alinhando entregas aos objetivos estratégicos</li>
+                            <li>Identificação e mitigação de riscos, problemas e mudanças em projetos complexos</li>
+                            <li>Gerenciamento de investimentos e monitoramento do business case, otimizando uso de recursos</li>
+                            <li>Elaboração de apresentações executivas com cenários de decisão, riscos e impactos</li>
+                            <li>Criação de dashboards e relatórios em Power BI para acompanhamento de desempenho</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="job-title">Scrum Master</div>
+                    <div class="job-period">Fevereiro 2021 - Março 2022 • 1 ano 2 meses • Remoto</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Transformação DEVOPS:</span> Liderou implantação de agilidade e otimização dos processos de desenvolvimento da GETTER/DOD</li>
+                            <li><span class="highlight">Cultura DEVOPS:</span> Supervisionou programa de implantação da cultura e ferramentais DEVOPS</li>
+                            <li><span class="highlight">Liderança de Equipes:</span> Liderou 5 equipes (4 de desenvolvimento e 1 de DEVOPS)</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Facilitação de ritos ágeis (daily, planning, review, retrospective) garantindo foco e pontualidade</li>
+                            <li>Mediação de conflitos e remoção de impedimentos, promovendo colaboração entre áreas e times</li>
+                            <li>Priorização de demandas e ajuste do backlog conforme objetivos estratégicos e capacidade da equipe</li>
+                            <li>Monitoramento de métricas ágeis (velocity, lead time, burndown) para identificar melhorias e riscos</li>
+                            <li>Planejamento de recursos e capacidades, alinhando perfis de habilidades às necessidades dos sprints</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company">
+                <div class="company-name">SETIC - SUPERINTENDÊNCIA ESTADUAL DE TI</div>
+                </div>
+                <div class="job">
+                    <div class="job-title">Coordenador de Gestão Estratégica</div>
+                    <div class="job-period">Janeiro 2021 - Setembro 2021 • 9 meses • Porto Velho, RO</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Governança em TI:</span> Coordenou a estruturação do plano de governança em TI e planejamento estratégico organizacional da SETIC</li>
+                            <li><span class="highlight">Reforma Administrativa:</span> Participou e orientou a reforma administrativa da SETIC e reforma de estrutura de cargos</li>
+                            <li><span class="highlight">Transformação Digital:</span> Coordenou a estruturação da estratégia de transformação digital de serviços para o portal do cidadão</li>
+                            <li><span class="highlight">Propriedade Intelectual:</span> Orientou o registro de programas no INPI</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Liderança e articulação do setor de Gestão de Projetos, definindo diretrizes, metodologias e padrões do PMO</li>
+                            <li>Gerenciamento de equipes multidisciplinares de Analistas de Negócio, assegurando mapeamento e otimização de processos</li>
+                            <li>Condução de iniciativas de Transformação Digital, priorizando automação e adoção de novas tecnologias</li>
+                            <li>Planejamento e monitoramento do Planejamento Estratégico corporativo, traduzindo objetivos em portfólios de projetos</li>
+                            <li>Estruturação e manutenção do framework de Governança, garantindo compliance, gestão de riscos e controles</li>
+                            <li>Alocação estratégica de recursos entre projetos e programas, otimizando investimentos e prazos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="job-title">Gerente de Portfólio de Projetos</div>
+                    <div class="job-period">Janeiro 2020 - Janeiro 2021 • 1 ano • Porto Velho, RO</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Portfólio de Sistemas:</span> Coordenou desenvolvimento de mais de 30 sistemas governamentais</li>
+                            <li><span class="highlight">Transformação ÁGIL:</span> Implantou agilidade e otimização dos processos de desenvolvimento da SETIC</li>
+                            <li><span class="highlight">Cultura DEVOPS:</span> Supervisionou programa de implantação da cultura e ferramentais DEVOPS</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Coordenação direta de projetos estratégicos do portfólio, garantindo escopo, prazo e custo alinhados</li>
+                            <li>Definição de diretrizes e governança de portfólio, assegurando padrões e consistência entre iniciativas</li>
+                            <li>Alocação de recursos e balanceamento de demandas entre múltiplos projetos</li>
+                            <li>Monitoramento de métricas de portfólio (ROI, SLA, riscos) e condução de comitês de revisão executiva</li>
+                            <li>Garantia de integração entre processos, planejamento estratégico e execução operacional</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="job-title">Gerente de Projetos</div>
+                    <div class="job-period">Janeiro 2018 - Janeiro 2020 • 2 anos • Porto Velho, RO</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Política de Gestão do Conhecimento:</span> Planejou, supervisionou e executou a Política de Gestão do Conhecimento no Estado de Rondônia</li>
+                            <li><span class="highlight">Campus Party RO:</span> Gerenciou o projeto por parte do Governo do Estado</li>
+                            <li><span class="highlight">Planejamento Estratégico TI:</span> Conduziu oficina de planejamento estratégico da área de Tecnologia</li>
+                            <li><span class="highlight">Manual DFT:</span> Construiu Manual Estadual de Dimensionamento da Força de Trabalho</li>
+                            <li><span class="highlight">Redesenho de Processos:</span> Conduziu desenho e redesenho de processos para gestão de 29 projetos</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Representação de usuários finais, garantindo que entregas atendam às suas necessidades</li>
+                            <li>Coordenação de equipes internas e terceiros para validar e otimizar soluções técnicas</li>
+                            <li>Definição e priorização de roadmap e backlog com base em feedback de mercado e usuários</li>
+                            <li>Facilitação de comunicação entre desenvolvimento, design, estratégia e negócios</li>
+                            <li>Elaboração de status reports regulares para stakeholders e alta gestão</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="job-title">Estagiário de Gestão de Projetos</div>
+                    <div class="job-period">Fevereiro 2016 - Dezembro 2017 • 1 ano 11 meses • Porto Velho, RO</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Planejamentos Estratégicos:</span> Apoiou construção dos planejamentos estratégicos da SEDAM RO, CGE RO e CGM Porto Velho</li>
+                            <li><span class="highlight">Projetos de Construção:</span> Supervisionou e coordenou projetos de infraestrutura urbana</li>
+                            <li><span class="highlight">Projeto de Infraestrutura:</span> Supervisionou expansão da Infovia Governamental (rede de fibra óptica)</li>
+                            <li><span class="highlight">Projetos de Eventos:</span> Assistiu na coordenação do Mutirão de Negociação Fiscal, Infoparty (2016 e 2017)</li>
+                            <li><span class="highlight">Projeto de Política:</span> Supervisionou o Projeto Cidade Organizada - Plano Diretor</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Monitoramento de KPIs e elaboração de relatórios analíticos, atualizando e padronizando rotinas de governança de projetos</li>
+                            <li>Atualização e manutenção do status de múltiplos projetos em ferramentas de gestão</li>
+                            <li>Implantação e padronização de rotinas de governança de projetos, apoiando execução de processos</li>
+                        </ul>
+                    </div>
+                </div>
+            <div class="company">
+                <div class="company-name">INSTITUTO FEDERAL DE RONDÔNIA (IFRO)</div>
+                <div class="job">
+                    <div class="job-title">Pesquisador em Gestão</div>
+                    <div class="job-period">Agosto 2016 - Maio 2018 • 1 ano 10 meses • Porto Velho e Região, Brasil</div>
+                    <div class="job-achievements">
+                        <h5>Principais Realizações:</h5>
+                        <ul>
+                            <li><span class="highlight">Pesquisa Aplicada:</span> Desenvolveu pesquisas em gestão organizacional aplicada ao setor público</li>
+                        </ul>
+                    </div>
+                    <div class="competencies">
+                        <h5>Competências-chave aplicadas:</h5>
+                        <ul>
+                            <li>Desenvolvimento de metodologias de pesquisa aplicada em gestão</li>
+                            <li>Análise de processos organizacionais no setor público</li>
+                            <li>Elaboração de relatórios técnicos e acadêmicos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="section">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <div class="education-container">
+                <div class="education-section">
+                    <h4>Pós-Graduações</h4>
+                    <div class="education-item">
+                        <p><strong>Arquitetura e Governança de Dados</strong></p>
+                        <p>Anhanguera Educacional • 2025</p>
+                    </div>
+                    <div class="education-item">
+                        <p><strong>MBA em Gerenciamento de Projetos</strong></p>
+                        <p>Faculdade Única • 2024</p>
+                    </div>
+                    <div class="education-item">
+                        <p><strong>MBA em Gestão de Processos</strong></p>
+                        <p>Faculdade Única • 2024</p>
+                    </div>
+                    <div class="education-item">
+                        <p><strong>MBA em Business Intelligence</strong></p>
+                        <p>UNIASSELVI • 2021-2025</p>
+                    </div>
+                </div>
+                <div class="education-section">
+                    <h4>Graduação</h4>
+                    <div class="education-item">
+                        <p><strong>Tecnólogo em Administração Pública</strong></p>
+                        <p>Instituto Federal de Rondônia (IFRO)</p>
+                        <p>2015-2017</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Certificações & Idiomas</h2>
+            <div class="certifications-container">
+                <div class="cert-section">
+                    <h4>Certificações</h4>
+                    <ul class="achievement-list">
+                        <li><strong>EF SET English Certificate</strong> - C2 Proficient (76/100)</li>
+                    </ul>
+                </div>
+                <div class="cert-section">
+                    <h4>Idiomas</h4>
+                    <ul class="achievement-list">
+                        <li><strong>Inglês:</strong> Avançado (C2 Proficient)</li>
+                        <li><strong>Português:</strong> Nativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Principais Conquistas</h2>
+            <div class="achievements-section">
+                <div class="achievements-grid">
+                    <div class="achievement-column">
+                        <h4>Resultados Quantitativos</h4>
+                        <ul class="achievement-list">
+                            <li><strong>6 projetos de Inteligência Artificial</strong> supervisionados</li>
+                            <li><strong>70+ projetos complexos</strong> executados com sucesso</li>
+                            <li><strong>40+ processos</strong> redesenhados</li>
+                            <li><strong>30+ sistemas governamentais</strong> desenvolvidos</li>
+                            <li><strong>12+ projetos de engenharia e eventos</strong></li>
+                            <li><strong>80+ pessoas</strong> coordenadas simultaneamente</li>
+                        </ul>
+                    </div>
+                    <div class="achievement-column">
+                        <h4>Transformações & Produtos</h4>
+                        <ul class="achievement-list">
+                            <li><strong>5+ produtos de Business Intelligence</strong> desenvolvidos</li>
+                            <li><strong>4+ transformações DEVOPS</strong> lideradas</li>
+                            <li><strong>4+ transformações ágeis</strong> implementadas</li>
+                            <li><strong>6+ planejamentos estratégicos</strong> executados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
